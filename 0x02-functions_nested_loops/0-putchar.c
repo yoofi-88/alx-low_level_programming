@@ -1,6 +1,7 @@
 #include "main.h"
 	/**
 	 * main - Entry point
+	 * Description: 'is written by mbah'
 	 * Return: 0
 	 */
 
