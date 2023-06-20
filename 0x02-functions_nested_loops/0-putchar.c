@@ -1,9 +1,10 @@
 #include "main.h"
 	/**
-	 * main - Entry point
-	 * Description:'is written by mbah'
+	 * main - print _putchar
+	 * is written by mbah
 	 * Return: 0
 	 */
+
 
 	int main(void)
 	{
