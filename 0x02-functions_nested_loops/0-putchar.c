@@ -2,9 +2,7 @@
 
 
 	/**
-	 * main - Entry Point
-	 * Description: 'A program that prints _putchar, followed by a new line'
-	 * @parameter: describe the parameter
+	 * main - Entry point
 	 * Return: Always 0
 	 */
 
