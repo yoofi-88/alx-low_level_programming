@@ -1,15 +1,15 @@
 #include "lists.h"
 
 /**
- * free_listint_safe - Frees a listint_t list.
- * @h: Pointer to the head of the list.
+ * free_listint_safe - Frees a listint_t linked list safely.
+ * @h: Pointer to the pointer to the first element in the list.
  *
  * Return: The size of the list that was freed.
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *current, *temp;
-	size_t size = 0;
+	size_t node_count = 0;
+	listint_t *current, *next_node;
 
 	if (h == NULL || *h == NULL)
 		return (0);
@@ -18,20 +18,23 @@ size_t free_listint_safe(listint_t **h)
 
 	while (current != NULL)
 	{
-		size++;
-		temp = current->next;
-		free(current);
-		current = temp;
+		node_count++;
 
-		/* Check if current node points to a previously freed node */
-		if (current == *h)
+		next_node = current->next;
+
+		current->next = NULL;
+
+		free(current);
+
+		if (current >= next_node)
 		{
 			*h = NULL;
-			break;
+			return (node_count);
 		}
+
+		current = next_node;
 	}
 
 	*h = NULL;
-
-	return (size);
+	return (node_count);
 }
